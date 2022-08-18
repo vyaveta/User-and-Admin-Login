@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0%;
+        padding: 0%;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(120deg,#2980b9,#8e44ad);
+        height: 100vh;
+        overflow: hidden;
+    }
+    .center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 400px;
+        background: white;
+        border-radius: 10px;
+    }
+    .center h1{
+        text-align: center;
+        padding:0 0 20px 0;
+        border-bottom: 1px solid silver;
+    }
+    .center form{
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+    form .text-field{
+       position: relative;
+       border-bottom: 2px solid rebeccapurple;
+       margin:30px 0;
+    }
+    .text-field input{
+        width:100%;
+        padding:0 5px;
+        height: 40px;
+        font-size: 1rem;
+        border:none;
+        background: none;
+        outline:none;
+        color: #270f32;
+        letter-spacing: 1.7px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+    }
+    .text-field label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        color: rgb(110, 110, 110);
+        transform: translateY(-50%);
+        font-size: 1rem;
+        pointer-events: none;
+        transition: .5s
+    }
+    .text-field span::before{
+        content: '';
+        position:absolute;
+        top: 40px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #2980b9;
+        transition: .5s;
+    }
+    .text-field input:focus ~ label,
+    .text-field input:valid ~ label{
+        top: -5px;
+        color:#2980b9 ;
+    }
+    .text-field input:focus ~ span::before,
+    .text-field input:valid ~ span::before{
+        width: 100%;
+    }
+    .pass{
+        margin:-5px 0 20px 5px;
+        color:#a6a6a6;
+        cursor: pointer;
+    }
+    .pass:hover{
+        text-decoration: underline;
+    }
+    input[type="submit"]{
+        width: 100%;
+        border: 1px solid;
+        height: 50px;
+        background: #2691d9;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        color: #e9f4fb;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+        margin-bottom: 4vh;
+    }
+</style>
+<body>
+    <div class="center">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="post" id="form" >
+            <div class="text-field">
+                <input type="text" name="name" id="name" required>
+                <span></span>
+                <label for="">User Name</label>
+            </div>
+            <div class="text-field">
+                <input type="email" name="email" id="email" required>
+                <span></span>
+                <label for="">Email</label>
+            </div>
+            <div class="text-field">
+                <input type="password" name="password" id="password" required>
+                <span></span>
+                <label for="">Password</label>
+            </div>
+            <div id="error" style="color:red;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;text-align:center;"></div>
+            <p style="color:red;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;text-align:center;">{{signup_msg}}</p>
+            <input type="submit" value="Create Account">
+        </form>
+    </div>
+    <script>
+        const name = document.getElementById('name')
+        const password = document.getElementById('password')
+        const form = document.getElementById('form')
+        const errorElement = document.getElementById('error')
+
+        form.addEventListener('submit',(e)=>{
+            let messages = []
+            if(password.value.length<=2) messages.push('Passwords must atleast contain 3 characters ') 
+            if(password.value.length>=20) messages.push('password cant be longer than 19 characters')  
+            if(name.value==null) messages.push('null value cant be considered as a valid username')
+            if(name.value.trim()=="") messages.push('This kind of Usernames are not allowed')
+            if(password.value.trim()=="") messages.push('Blank passwords are not allowed')
+            if(messages.length>0){
+                 e.preventDefault()
+                 errorElement.innerText = messages.join('+')
+            }  
+        })
+    </script>
+</body>
+</html>

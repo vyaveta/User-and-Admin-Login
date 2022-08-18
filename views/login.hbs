@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<style>
+    * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(pink, violet, blueviolet);
+    }
+
+    .wave {
+        position: fixed;
+        height: 100%;
+    }
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        grid-gap: 7rem;
+        padding: 0 2rem;
+    }
+
+    .img {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .img img {
+        width: 500px;
+    }
+
+    .login-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .form {
+        width: 360px;
+    }
+
+    .msg {
+        font-size: 2.9rem;
+        text-transform: uppercase;
+        margin: 15px 0;
+        color: black;
+    }
+
+    .avatar {
+        width: 100px;
+    }
+
+    .input-div {
+        display: grid;
+        grid-template-columns: 7% 93%;
+        margin: 25px 0;
+        padding: 5px 0;
+        border-bottom: 2px solid purple;
+    }
+
+    .input-div.one {
+        margin-top: 0;
+    }
+
+    .input-div.two {
+        margin-bottom: 4px;
+    }
+
+    .i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .i i {
+        color: rgb(255, 255, 255);
+    }
+
+    .input-div {
+        position: relative;
+        height: 45px;
+    }
+
+    .text {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        cursor: pointer;
+        transform: translateY(-50%);
+        /* color: rgba(41, 39, 39, 0.6); */
+        color: white !important;
+        font-size: 1.2rem;
+        transition: .5s;
+        /* pointer-events: none; */
+    }
+
+    .text:hover {
+        color: black;
+    }
+
+    input:focus~h5,
+    input:valid~h5 {
+        top: -5px;
+        color: #2980b9;
+    }
+
+    .input-div.focus .i i {
+        color: rgb(255, 255, 255);
+    }
+
+    /* .input-div.focus div h5{
+    top: -5px;
+    font-size: 15px;
+} */
+    .input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0.5rem 0.7rem;
+        font-size: 1.2rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        color: white !important;
+        font-weight: 800;
+        /* pointer-events: none; */
+    }
+
+    a {
+        /* display: block; */
+        text-align: center;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: .3s;
+        color: white;
+        font-weight: 700;
+    }
+
+    a:hover {
+        color: rgb(26, 4, 47);
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        height: 50px;
+        border-radius: 25px;
+        margin: .1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0%;
+        font-size: 1.2rem;
+        outline: none;
+        border: none;
+        background: linear-gradient(to right, #a114ae, #d866ec, #880780);
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        color: aliceblue;
+        /* for adjusting linear gradient */
+        background-size: 200%;
+        transition: .5s;
+    }
+
+    .btn:hover {
+        background-position: right;
+    }
+
+    .in h5:hover {
+        color: black;
+    }
+
+    @media screen and (max-width:1050px) {
+        .container {
+            grid-gap: 5rem;
+        }
+    }
+
+    @media screen and (max-width:1000px) {
+        form {
+            width: 290px;
+        }
+
+        form h2 {
+            font-size: 2.4rem;
+            margin: 8px 0;
+        }
+
+        .img img {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width:900px) {
+        .img {
+            display: none;
+        }
+
+        .container {
+            grid-template-columns: 1fr;
+        }
+
+        .login-container {
+            justify-content: center;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="undraw_voice_assistant_nrv7.svg" alt="image here">
+        </div>
+        <div class="login-container">
+            <form action="/login" method="post">
+                <img class="avatar" src="undraw_profile_pic_ic-5-t.svg" alt="profile image">
+                <h2 class="msg">Welcome</h2>
+                <div class="input-div one focus">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="in">
+                        <label for="">
+                            <h5 class="text">&nbsp; </h5>
+                        </label>
+                        <input type="text" name="name" placeholder="User name" class="input" required>
+                    </div>
+                </div>
+                <div class="input-div one focus">
+                    <div class="i">
+                    <i class="uil uil-at"></i>
+                    </div>
+                    <div class="in">
+                       <label for=""><h5 class="text">&nbsp; </h5></label> 
+                        <input type="email" name="email" class="input" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="input-div two">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="">
+                        <h5 class="text"> &nbsp; </h5>
+                        <input type="password" name="password" placeholder="Password" class="input" required>
+                    </div>
+                </div>
+                <input class="btn" type="submit" value="Login">
+                <p style="color: white;">doesn't have an account? <a href="/signup">signup </a></p>
+        {{#if flag}} <p style="text-align:center ; background:white;display:block; color:rgb(255, 0, 0);font-family:Arial, Helvetica, sans-serif;font-weight:600">{{errmsg}}</p> {{/if}}
+                <p style="text-align:center ; color:rgb(255, 255, 255);font-family:Arial, Helvetica, sans-serif;font-weight:600">{{logout_msg}}</p>
+                <p style="text-align:center ; color:rgb(0, 255, 4);font-family:Arial, Helvetica, sans-serif;font-weight:600">{{signup_msg}}</p>
+            </form>         
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
